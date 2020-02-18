@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Liste d'un Véhicule
+{% endblock %}
+
+{% block content %}
+<form action="{{env.base_path ~ 'clients/edit/' ~ client.id }}" method="post">
+    <div class="form-group">
+        <label for="Titre">Nom</label>
+        <input type="text" class="form-control" placeholder="Nom" name="firstname"
+            value="{{client ? client.firstname}}">
+    </div>
+    <div class="form-group">
+        <label for="Titre">Prénom</label>
+        <input type="text" class="form-control" placeholder="Prénom" name="lastname"
+            value="{{client ? client.lastname}}">
+    </div>
+    <div class="form-group">
+        <label for="Titre">Date d'entrée</label>
+        <input type="date" class="form-control" placeholder="date" name="entry_date" value="{{client ? client.entry_date}}">
+    </div>
+    <div class="form-group">
+        <label for="Titre">Date de sortie</label>
+        <input type="date" class="form-control" placeholder="date" name="departure_date"
+            value="{{client ? client.departure_date}}">
+    </div>
+    <button type="submit" class="col-12 btn btn-primary">Modifier le client {{client ? client.lastname}} {{client ? client.firstname}}</button>
+</form>
+<br>
+<div>
+    <a href="{{ env.base_path ~ '/clients'}}" class="btn btn-primary">
+        Retour
+    </a>
+</div>
+{% endblock  %}

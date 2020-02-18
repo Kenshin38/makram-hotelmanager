@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Gestionnaire d'hôtels Hb-HotelManager
+{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <h1>Liste des clients</h1>
+</div>
+<div class="card">
+    <div class="card-header text-center"><strong>Liste des clients</strong></div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom du client</th>
+                    <th>Prénom du client</th>
+                    <th>Date d'entrée</th>
+                    <th>Date de sortie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <thead>
+                    {% for client in clients %}
+                    <tr>
+            <th>{{client.firstname}}</th>
+            <th>{{client.lastname}}</th>
+            <th>{{client.entry_date}}</th>
+            <th>{{client.departure_date}} <a href="{{env.base_path ~ '/clients/delete/' ~ client.id}}"><i class="fa fa-trash" aria-hidden="true"></i> <a href="{{env.base_path ~ 'clients/edit/' ~ client.id}}"> Editer </a> </th></a>
+        </tr>
+        {% endfor %}
+    </thead>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-12 text-center">
+<a href="{{ env.base_path ~ '/clients/new'}}" class="btn btn-primary">
+    Créer un nouveau client
+</a>
+</div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12 text-center">
+    <a href="{{ env.base_path ~ '/'}}" class="btn btn-primary">
+        Retour
+    </a>
+</div>
+</div>
+{% endblock %}

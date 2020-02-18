@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Liste d'un Véhicule
+{% endblock %}
+
+{% block content %}
+<form action="{{env.base_path ~ 'rooms'}}" method="post">
+    <div class="form-group">
+        <label for="Titre">Numero chambre</label>
+        <input type="number" class="form-control" placeholder="numero" name="number" value="{{room ? room.number}}">
+    </div>
+    <button type="submit" class="col-12 btn btn-primary">Ajouter une chambre</button>
+</form>
+<br>
+<div>
+    <a href="{{ env.base_path ~ '/'}}" class="btn btn-primary">
+        Retour
+    </a>
+</div>
+{% endblock  %}
